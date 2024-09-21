@@ -1,9 +1,20 @@
 package com.sitmng.management.dto;
 
+import java.time.LocalDateTime;
+
 public class RequestDTO {
     private String title;
     private String subject;
     private String description;
+    private LocalDateTime issued;
+
+    public LocalDateTime getIssued() {
+        return issued;
+    }
+
+    public void setIssued(LocalDateTime issued) {
+        this.issued = issued;
+    }
 
     public String getTitle() {
         return title;
@@ -29,9 +40,10 @@ public class RequestDTO {
         this.description = description;
     }
 
-    public RequestDTO(String title, String subject, String description) {
+    public RequestDTO(String title, String subject, String description, LocalDateTime issued) {
         this.title = title;
         this.subject = subject;
         this.description = description;
+        this.issued = issued;
     }
 }

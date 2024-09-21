@@ -38,7 +38,7 @@ public class RequestController {
                 response.put("status", "Invalid Department Request");
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
             }
-            Request obj = requestService.createRequest(department.getId(),request.getTitle(),request.getSubject(),request.getDescription());
+            Request obj = requestService.createRequest(department.getId(),request.getTitle(),request.getSubject(),request.getDescription(),request.getIssued());
             response.put("status", "Success");
             response.put("data", obj);
             response.put("message", "your request has been created");

@@ -5,6 +5,7 @@ import com.sitmng.management.respository.RequestsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -17,8 +18,8 @@ public class RequestService {
         this.requestsRepo = requestsRepo;
     }
 
-    public Request createRequest(String departmentId, String title, String subject, String description ) {
-        Request temp = new Request(departmentId, title, subject, description);
+    public Request createRequest(String departmentId, String title, String subject, String description, LocalDateTime issued) {
+        Request temp = new Request(departmentId, title, subject, description,issued);
         return requestsRepo.save(temp);
     }
 

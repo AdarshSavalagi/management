@@ -3,6 +3,8 @@ package com.sitmng.management.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Document
 public class Request {
     @Id
@@ -10,9 +12,19 @@ public class Request {
     private String departmentId;
 
     private String title;
+
+    public LocalDateTime getIssued() {
+        return issued;
+    }
+
+    public void setIssued(LocalDateTime issued) {
+        this.issued = issued;
+    }
+
     private String subject;
     private String description;
     private int status ;
+    private LocalDateTime issued;
 
     public String getId() {
         return id;
@@ -22,12 +34,13 @@ public class Request {
         this.id = id;
     }
 
-    public Request(String departmentId, String title, String subject, String description) {
+    public Request(String departmentId, String title, String subject, String description, LocalDateTime issued) {
         this.departmentId = departmentId;
         this.title = title;
         this.subject = subject;
         this.description = description;
         this.status=1;
+        this.issued = issued;
     }
 
     public String getDepartmentId() {
